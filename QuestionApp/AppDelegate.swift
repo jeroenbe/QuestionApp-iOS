@@ -7,6 +7,11 @@
 //
 
 import UIKit
+import CoreData
+import Meteor
+
+let Meteor = METCoreDataDDPClient(serverURL: NSURL(string: "wss://questionapp.meteor.com/websocket"));
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        Meteor.connect()
         return true
     }
 
