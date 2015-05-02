@@ -15,12 +15,12 @@ class FirstViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        
+        //complete with Meteor-iOS README
         var subscriptionLoader = SubscriptionLoader();
         
         if Meteor.connected {
-            let question: AnyObject! = Meteor.callMethodWithName("getUnreadQuestion", parameters: []){
-                
-            }();
+            let question: AnyObject! = Meteor.callMethodWithName("getUnreadQuestion", parameters: []);
             subscriptionLoader.addSubscriptionWithName(name: "questionByID", parameters: );
             
         }

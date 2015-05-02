@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>9FE22005-ACA1-451A-8F59-9FAE726299BD</string>
+	<key>IDESourceControlProjectName</key>
+	<string>QuestionApp</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>EBAA380325162DE028708C19535D1085A44318B6</key>
+		<string>https://github.com/JeroenBe/QuestionApp-iOS.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>QuestionApp.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>EBAA380325162DE028708C19535D1085A44318B6</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/JeroenBe/QuestionApp-iOS.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>EBAA380325162DE028708C19535D1085A44318B6</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>EBAA380325162DE028708C19535D1085A44318B6</string>
+			<key>IDESourceControlWCCName</key>
+			<string>QuestionApp</string>
+		</dict>
+	</array>
+</dict>
+</plist>

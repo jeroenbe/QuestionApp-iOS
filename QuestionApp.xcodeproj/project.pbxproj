@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		6055DE5AC9D48549B412A09E /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46825F03D8EAF3ADEAAA3CC9 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		90336BFB1AF3F6AF009AC4BE /* SubscriptionLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90336BFA1AF3F6AF009AC4BE /* SubscriptionLoader.swift */; };
+		90336BFE1AF40A3F009AC4BE /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90336BFD1AF40A3F009AC4BE /* Question.swift */; };
+		90336C001AF40F1B009AC4BE /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90336BFF1AF40F1B009AC4BE /* CoreData.framework */; };
+		90336C331AF41241009AC4BE /* QuestionDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 90336C311AF41241009AC4BE /* QuestionDataModel.xcdatamodeld */; };
 		90EDCA381AF0C42B005B3C76 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EDCA371AF0C42B005B3C76 /* AppDelegate.swift */; };
 		90EDCA3A1AF0C42B005B3C76 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EDCA391AF0C42B005B3C76 /* FirstViewController.swift */; };
 		90EDCA3C1AF0C42B005B3C76 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EDCA3B1AF0C42B005B3C76 /* SecondViewController.swift */; };
@@ -31,6 +34,9 @@
 /* Begin PBXFileReference section */
 		46825F03D8EAF3ADEAAA3CC9 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		90336BFA1AF3F6AF009AC4BE /* SubscriptionLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionLoader.swift; sourceTree = "<group>"; };
+		90336BFD1AF40A3F009AC4BE /* Question.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		90336BFF1AF40F1B009AC4BE /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		90336C321AF41241009AC4BE /* QuestionDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = QuestionDataModel.xcdatamodel; sourceTree = "<group>"; };
 		90EDCA321AF0C42B005B3C76 /* QuestionApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuestionApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		90EDCA361AF0C42B005B3C76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		90EDCA371AF0C42B005B3C76 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90336C001AF40F1B009AC4BE /* CoreData.framework in Frameworks */,
 				6055DE5AC9D48549B412A09E /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -68,6 +75,7 @@
 		19C7E64AC8B10087F11554F4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				90336BFF1AF40F1B009AC4BE /* CoreData.framework */,
 				46825F03D8EAF3ADEAAA3CC9 /* Pods.framework */,
 			);
 			name = Frameworks;
@@ -87,6 +95,15 @@
 				90336BFA1AF3F6AF009AC4BE /* SubscriptionLoader.swift */,
 			);
 			name = Subscription;
+			sourceTree = "<group>";
+		};
+		90336BFC1AF40A2B009AC4BE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				90336BFD1AF40A3F009AC4BE /* Question.swift */,
+				90336C311AF41241009AC4BE /* QuestionDataModel.xcdatamodeld */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		90EDCA291AF0C42B005B3C76 = {
@@ -118,6 +135,7 @@
 				90EDCA3D1AF0C42B005B3C76 /* Main.storyboard */,
 				90EDCA401AF0C42B005B3C76 /* Images.xcassets */,
 				90EDCA421AF0C42B005B3C76 /* LaunchScreen.xib */,
+				90336BFC1AF40A2B009AC4BE /* Model */,
 				90336BF81AF3F67C009AC4BE /* Meteor Classes */,
 				90EDCA351AF0C42B005B3C76 /* Supporting Files */,
 			);
@@ -309,6 +327,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90336BFE1AF40A3F009AC4BE /* Question.swift in Sources */,
+				90336C331AF41241009AC4BE /* QuestionDataModel.xcdatamodeld in Sources */,
 				90EDCA3C1AF0C42B005B3C76 /* SecondViewController.swift in Sources */,
 				90EDCA381AF0C42B005B3C76 /* AppDelegate.swift in Sources */,
 				90EDCA3A1AF0C42B005B3C76 /* FirstViewController.swift in Sources */,
@@ -522,6 +542,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		90336C311AF41241009AC4BE /* QuestionDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				90336C321AF41241009AC4BE /* QuestionDataModel.xcdatamodel */,
+			);
+			currentVersion = 90336C321AF41241009AC4BE /* QuestionDataModel.xcdatamodel */;
+			path = QuestionDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 90EDCA2A1AF0C42B005B3C76 /* Project object */;
 }
