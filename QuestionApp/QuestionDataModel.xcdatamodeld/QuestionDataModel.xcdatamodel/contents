@@ -1,10 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7549" systemVersion="14D131" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="Entity" syncable="YES">
+    <entity name="Answer" syncable="YES">
+        <attribute name="answer" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="qID" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="answerForQuestion" maxCount="1" deletionRule="Nullify" destinationEntity="Question" syncable="YES"/>
+    </entity>
+    <entity name="Question" syncable="YES">
         <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="User" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="authoredQuestions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Question" syncable="YES"/>
+    </entity>
     <elements>
-        <element name="Entity" positionX="-63" positionY="-18" width="128" height="73"/>
+        <element name="Question" positionX="-90" positionY="9" width="128" height="73"/>
+        <element name="Answer" positionX="-288" positionY="45" width="128" height="88"/>
+        <element name="User" positionX="106" positionY="45" width="128" height="88"/>
     </elements>
 </model>
