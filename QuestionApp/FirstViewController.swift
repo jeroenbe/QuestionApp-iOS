@@ -10,20 +10,34 @@ import UIKit
 import Meteor
 
 class FirstViewController: UIViewController {
+    
+    
+    @IBOutlet weak var spinnerOnLoadQuestion: UIActivityIndicatorView!
+    @IBOutlet weak var questionText: UILabel!
+    let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        self.spinnerOnLoadQuestion.startAnimating()
+        self.spinnerOnLoadQuestion.hidesWhenStopped = false
+        let subscriptionLoader = SubscriptionLoader()
         
-        
-        //complete with Meteor-iOS README
-        var subscriptionLoader = SubscriptionLoader();
-        
-        if Meteor.connected {
-            let question: AnyObject! = Meteor.callMethodWithName("getUnreadQuestion", parameters: []);
-            subscriptionLoader.addSubscriptionWithName(name: "questionByID", parameters: );
+        Meteor.callMethodWithName("getUnreadQuestion", parameters: []){
+            questionID, error in
+            subscriptionLoader.addSubscriptionWithName("questionById", parameters: questionID)
             
+            subscriptionLoader.whenReady {
+                let fetchRequest = NSFetchRequest(entityName: "Question")
+                if let fetchResults = self.managedObjectContext!.executeFetchRequest(fetchRequest, error: nil) as? [Question] {
+                    self.questionText.text = fetchResults[0].content + "?"
+                    self.spinnerOnLoadQuestion.hidesWhenStopped = true
+                    self.spinnerOnLoadQuestion.stopAnimating()
+                }
+            }
         }
+        
+        
         
     }
 
