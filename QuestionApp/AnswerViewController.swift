@@ -11,7 +11,6 @@ import Meteor
 
 class FirstViewController: UIViewController {
     
-    
     @IBOutlet weak var spinnerOnLoadQuestion: UIActivityIndicatorView!
     @IBOutlet weak var questionText: UILabel!
     let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
@@ -39,6 +38,9 @@ class FirstViewController: UIViewController {
                 }
             }
         }
+    }
+    @IBAction func answerQuestion(sender: AnyObject) {
+        println((sender as! UISegmentedControl).selectedSegmentIndex)
     }
     
     //UIKit detail funcs
