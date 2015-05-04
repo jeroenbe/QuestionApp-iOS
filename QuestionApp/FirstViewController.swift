@@ -19,10 +19,14 @@ class FirstViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        self.spinnerOnLoadQuestion.startAnimating()
-        self.spinnerOnLoadQuestion.hidesWhenStopped = false
-        let subscriptionLoader = SubscriptionLoader()
+        self.setNextQuestion()
+    }
+    
+    //IBActions -> action funcs
+    @IBAction func setNextQuestion(){
+        self.startSpinner()
         
+        let subscriptionLoader = SubscriptionLoader()
         Meteor.callMethodWithName("getUnreadQuestion", parameters: []){
             questionID, error in
             subscriptionLoader.addSubscriptionWithName("questionById", parameters: questionID)
@@ -30,17 +34,23 @@ class FirstViewController: UIViewController {
             subscriptionLoader.whenReady {
                 let fetchRequest = NSFetchRequest(entityName: "Question")
                 if let fetchResults = self.managedObjectContext!.executeFetchRequest(fetchRequest, error: nil) as? [Question] {
+                    self.stopSpinner()
                     self.questionText.text = fetchResults[0].content + "?"
-                    self.spinnerOnLoadQuestion.hidesWhenStopped = true
-                    self.spinnerOnLoadQuestion.stopAnimating()
                 }
             }
         }
-        
-        
-        
     }
-
+    
+    //UIKit detail funcs
+    func startSpinner(){
+        self.spinnerOnLoadQuestion.startAnimating()
+        self.spinnerOnLoadQuestion.hidden = false
+    }
+    func stopSpinner(){
+        self.spinnerOnLoadQuestion.hidden = true
+        self.spinnerOnLoadQuestion.stopAnimating()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
