@@ -53,40 +53,37 @@ class FirstViewController: UIViewController {
     }
     
     @IBAction func answerQuestion(sender: AnyObject) {
+        var answer = false
         if(sender.selectedSegmentIndex == 0){
-            Meteor.callMethodWithName("answerQuestion", parameters: [self.currentQuestionID, true]);
-        }else{
-            Meteor.callMethodWithName("answerQuestion", parameters: [self.currentQuestionID, false])
+            answer = true
         }
-        sender.setEnabled(false, forSegmentAtIndex: (sender.selectedSegmentIndex-1)*(-1))
-        //TODO subscribe to answers
         
-        var skipped: Int = 0
-        var yes: Int = 0
-        var no: Int = 0
-        
-        let subscriptionLoader = SubscriptionLoader()
-        subscriptionLoader.addSubscriptionWithName("answersForQuestion", parameters: self.currentQuestionID as String)
-        
-        subscriptionLoader.whenReady{
-            let fetchRequest = NSFetchRequest(entityName: "Answer")
-            if let fetchResults = self.managedObjectContext!.executeFetchRequest(fetchRequest, error: nil) as? [Answer]{
-                for Answer in fetchResults{
-                    if Answer.answer == true {
-                        yes++
-                    }else if Answer.answer == false {
-                        no++
-                        println("hello")
-                    }else{
-                        skipped++
+        Meteor.callMethodWithName("answerQuestion", parameters: [self.currentQuestionID, answer]) {
+            result in
+            var skipped: Int = 0
+            var yes: Int = 0
+            var no: Int = 0
+            
+            let subscriptionLoader = SubscriptionLoader()
+            subscriptionLoader.addSubscriptionWithName("answersForQuestion", parameters: self.currentQuestionID as String)
+            
+            subscriptionLoader.whenReady{
+                let fetchRequest = NSFetchRequest(entityName: "Answer")
+                if let fetchResults = self.managedObjectContext!.executeFetchRequest(fetchRequest, error: nil) as? [Answer]{
+                    for Answer in fetchResults{
+                        if Answer.answer == true {
+                            yes++
+                        }else if Answer.answer == false {
+                            no++
+                        }else{
+                            skipped++
+                        }
                     }
                 }
-                println(skipped)
-                println(yes)
-                println(no)
             }
         }
         
+        sender.setEnabled(false, forSegmentAtIndex: (sender.selectedSegmentIndex-1)*(-1))
     }
     
     //UIKit detail funcs
