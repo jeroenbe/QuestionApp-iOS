@@ -11,6 +11,10 @@ The purpose of this app is to gain a better understanding of Cocoa Touch, iOS, D
 * [MVVM in iOS](http://www.teehanlax.com/blog/model-view-viewmodel-for-ios/)
 * [ReactiveCocoa on GitHub](https://github.com/ReactiveCocoa/ReactiveCocoa)
 * [ReactiveCocoa and Swift](http://blog.scottlogic.com/2014/07/24/mvvm-reactivecocoa-swift.html)
+* 
+###3. Libraries & Dependencies
+* [Meteor-iOS](https://github.com/martijnwalraven/meteor-ios)
+* [JawBone: ChartView](https://github.com/Jawbone/JBChartView)
 
 
 
