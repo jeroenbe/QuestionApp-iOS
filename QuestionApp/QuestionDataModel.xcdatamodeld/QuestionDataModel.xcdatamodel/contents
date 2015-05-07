@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7549" systemVersion="14E11f" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="Answer" representedClassName="PRODUCT_MODULE_NAME.Answer" syncable="YES">
+    <entity name="Answer" representedClassName="QuestionApp.Answer" syncable="YES">
         <attribute name="answer" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="qID" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="answerForQuestion" maxCount="1" deletionRule="Nullify" destinationEntity="Question" inverseName="answersForQuestion" inverseEntity="Question" syncable="YES"/>
@@ -11,7 +11,7 @@
         <relationship name="answersForQuestion" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Answer" inverseName="answerForQuestion" inverseEntity="Answer" syncable="YES"/>
         <relationship name="authorForQuestion" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="authoredQuestions" inverseEntity="User" syncable="YES"/>
     </entity>
-    <entity name="User" representedClassName="PRODUCT_MODULE_NAME.User" syncable="YES">
+    <entity name="User" representedClassName="QuestionApp.User" syncable="YES">
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="authoredQuestions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Question" inverseName="authorForQuestion" inverseEntity="Question" syncable="YES"/>

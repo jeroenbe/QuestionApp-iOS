@@ -11,12 +11,15 @@ import Meteor
 
 class FirstViewController: UIViewController {
     
+    //UIKit vars
     @IBOutlet weak var yesNoButton: UISegmentedControl!
     @IBOutlet weak var spinnerOnLoadQuestion: UIActivityIndicatorView!
     @IBOutlet weak var questionText: UILabel!
+    
+    //Core Data vars
     let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     
-    
+    //Meteor vars
     var currentQuestionID: String = "-1"
     
     override func viewDidLoad() {
@@ -48,6 +51,7 @@ class FirstViewController: UIViewController {
             }
         }
     }
+    
     @IBAction func answerQuestion(sender: AnyObject) {
         if(sender.selectedSegmentIndex == 0){
             Meteor.callMethodWithName("answerQuestion", parameters: [self.currentQuestionID, true]);
@@ -55,6 +59,34 @@ class FirstViewController: UIViewController {
             Meteor.callMethodWithName("answerQuestion", parameters: [self.currentQuestionID, false])
         }
         sender.setEnabled(false, forSegmentAtIndex: (sender.selectedSegmentIndex-1)*(-1))
+        //TODO subscribe to answers
+        
+        var skipped: Int = 0
+        var yes: Int = 0
+        var no: Int = 0
+        
+        let subscriptionLoader = SubscriptionLoader()
+        subscriptionLoader.addSubscriptionWithName("answersForQuestion", parameters: self.currentQuestionID as String)
+        
+        subscriptionLoader.whenReady{
+            let fetchRequest = NSFetchRequest(entityName: "Answer")
+            if let fetchResults = self.managedObjectContext!.executeFetchRequest(fetchRequest, error: nil) as? [Answer]{
+                for Answer in fetchResults{
+                    if Answer.answer == true {
+                        yes++
+                    }else if Answer.answer == false {
+                        no++
+                        println("hello")
+                    }else{
+                        skipped++
+                    }
+                }
+                println(skipped)
+                println(yes)
+                println(no)
+            }
+        }
+        
     }
     
     //UIKit detail funcs
