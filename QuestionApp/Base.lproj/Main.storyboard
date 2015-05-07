@@ -8,7 +8,7 @@
         <!--Answer-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController id="9pv-A4-QxB" customClass="FirstViewController" customModule="QuestionApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="9pv-A4-QxB" customClass="AnswerViewController" customModule="QuestionApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ia1-K6-d13"/>
                         <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>
@@ -17,6 +17,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="IJC-ZP-aZR">
+                                <rect key="frame" x="290" y="80" width="20" height="20"/>
+                            </activityIndicatorView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="KQZ-1w-vlD">
                                 <rect key="frame" x="16" y="90" width="568" height="0.0"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -24,9 +27,6 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="IJC-ZP-aZR">
-                                <rect key="frame" x="290" y="80" width="20" height="20"/>
-                            </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fFj-aC-5HL">
                                 <rect key="frame" x="251" y="513" width="98" height="30"/>
                                 <state key="normal" title="Next Question">
@@ -46,10 +46,17 @@
                                     <action selector="answerQuestion:" destination="9pv-A4-QxB" eventType="valueChanged" id="glb-h4-tlN"/>
                                 </connections>
                             </segmentedControl>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zeG-xa-5EP">
+                                <rect key="frame" x="24" y="220" width="553" height="214"/>
+                                <connections>
+                                    <segue destination="Vva-hy-T7j" kind="embed" id="ntq-KO-OZj"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="1Ht-0W-Hua" secondAttribute="centerX" id="6w8-ok-6K1"/>
+                            <constraint firstItem="zeG-xa-5EP" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" constant="8" id="A50-qg-fRb"/>
                             <constraint firstAttribute="centerY" secondItem="fFj-aC-5HL" secondAttribute="centerY" constant="-228" id="KDX-IM-avY"/>
                             <constraint firstAttribute="centerY" secondItem="KQZ-1w-vlD" secondAttribute="centerY" constant="210" id="KFT-P6-oep"/>
                             <constraint firstAttribute="centerY" secondItem="IJC-ZP-aZR" secondAttribute="centerY" constant="210" id="OLn-5Y-gsl"/>
@@ -58,7 +65,10 @@
                             <constraint firstAttribute="trailingMargin" secondItem="KQZ-1w-vlD" secondAttribute="trailing" id="ZQZ-TW-48C"/>
                             <constraint firstAttribute="centerX" secondItem="IJC-ZP-aZR" secondAttribute="centerX" id="ilc-9C-qM0"/>
                             <constraint firstAttribute="centerY" secondItem="1Ht-0W-Hua" secondAttribute="centerY" constant="-177" id="m1B-lB-twc"/>
+                            <constraint firstAttribute="centerY" secondItem="zeG-xa-5EP" secondAttribute="centerY" constant="-27" id="oay-H1-6wa"/>
+                            <constraint firstAttribute="centerX" secondItem="zeG-xa-5EP" secondAttribute="centerX" id="uZm-BU-Ydw"/>
                             <constraint firstAttribute="centerX" secondItem="fFj-aC-5HL" secondAttribute="centerX" id="ux9-Xs-q2V"/>
+                            <constraint firstItem="1Ht-0W-Hua" firstAttribute="top" secondItem="zeG-xa-5EP" secondAttribute="bottom" constant="29" id="wID-Pd-eLY"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Answer" image="first" id="acW-dT-cKf"/>
@@ -130,6 +140,40 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="0.0" y="0.0"/>
+        </scene>
+        <!--Chart View Controller-->
+        <scene sceneID="74T-yS-JoE">
+            <objects>
+                <viewController title="Chart View Controller" automaticallyAdjustsScrollViewInsets="NO" id="Vva-hy-T7j" customClass="ChartViewController" customModule="QuestionApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hW7-66-bAS"/>
+                        <viewControllerLayoutGuide type="bottom" id="Kum-05-hf7"/>
+                    </layoutGuides>
+                    <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="kQQ-1c-Z05">
+                        <rect key="frame" x="0.0" y="0.0" width="553" height="214"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3u5-uG-mbo">
+                                <rect key="frame" x="255" y="96" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="3u5-uG-mbo" secondAttribute="centerY" id="OFJ-X3-qTg"/>
+                            <constraint firstAttribute="centerX" secondItem="3u5-uG-mbo" secondAttribute="centerX" id="Yxh-9K-UyG"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <connections>
+                        <outlet property="helloWorldLabel" destination="3u5-uG-mbo" id="Mbb-Ck-v44"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pr7-ft-Qhx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1452.5" y="-320"/>
         </scene>
     </scenes>
     <resources>

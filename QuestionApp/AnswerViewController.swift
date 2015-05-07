@@ -9,7 +9,7 @@
 import UIKit
 import Meteor
 
-class FirstViewController: UIViewController {
+class AnswerViewController: UIViewController {
     
     //UIKit vars
     @IBOutlet weak var yesNoButton: UISegmentedControl!
@@ -51,7 +51,6 @@ class FirstViewController: UIViewController {
             }
         }
     }
-    
     @IBAction func answerQuestion(sender: AnyObject) {
         var answer = false
         if(sender.selectedSegmentIndex == 0){
@@ -67,7 +66,7 @@ class FirstViewController: UIViewController {
             let subscriptionLoader = SubscriptionLoader()
             subscriptionLoader.addSubscriptionWithName("answersForQuestion", parameters: self.currentQuestionID as String)
             
-            subscriptionLoader.whenReady{
+            subscriptionLoader.whenReady {
                 let fetchRequest = NSFetchRequest(entityName: "Answer")
                 if let fetchResults = self.managedObjectContext!.executeFetchRequest(fetchRequest, error: nil) as? [Answer]{
                     for Answer in fetchResults{
@@ -82,8 +81,16 @@ class FirstViewController: UIViewController {
                 }
             }
         }
-        
         sender.setEnabled(false, forSegmentAtIndex: (sender.selectedSegmentIndex-1)*(-1))
+    }
+    
+    //JawBone Charts
+    func createChart(skipped: Int, no: Int, yes: Int)->JBBarChartView{
+        var chart = JBBarChartView()
+        
+        
+        
+        return chart
     }
     
     //UIKit detail funcs

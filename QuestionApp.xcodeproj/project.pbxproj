@@ -11,6 +11,7 @@
 		90310CC01AFB4DB900C988B1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90310CBF1AFB4DB900C988B1 /* User.swift */; };
 		90310CC21AFB4DBA00C988B1 /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90310CC11AFB4DBA00C988B1 /* Answer.swift */; };
 		90310CC41AFB4DCF00C988B1 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90310CC31AFB4DCF00C988B1 /* Question.swift */; };
+		90310CCA1AFC103900C988B1 /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90310CC91AFC103900C988B1 /* ChartViewController.swift */; };
 		90336C001AF40F1B009AC4BE /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90336BFF1AF40F1B009AC4BE /* CoreData.framework */; };
 		90336C331AF41241009AC4BE /* QuestionDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 90336C311AF41241009AC4BE /* QuestionDataModel.xcdatamodeld */; };
 		907880911AF65AFD00228C9C /* SubscriptionLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907880901AF65AFD00228C9C /* SubscriptionLoader.swift */; };
@@ -39,6 +40,8 @@
 		90310CBF1AFB4DB900C988B1 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = model/User.swift; sourceTree = "<group>"; };
 		90310CC11AFB4DBA00C988B1 /* Answer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Answer.swift; path = model/Answer.swift; sourceTree = "<group>"; };
 		90310CC31AFB4DCF00C988B1 /* Question.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Question.swift; path = model/Question.swift; sourceTree = "<group>"; };
+		90310CC61AFC05F200C988B1 /* QuestionApp-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "QuestionApp-Bridging-Header.h"; sourceTree = "<group>"; };
+		90310CC91AFC103900C988B1 /* ChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
 		90336BFF1AF40F1B009AC4BE /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		90336C321AF41241009AC4BE /* QuestionDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = QuestionDataModel.xcdatamodel; sourceTree = "<group>"; };
 		907880901AF65AFD00228C9C /* SubscriptionLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionLoader.swift; sourceTree = "<group>"; };
@@ -85,6 +88,14 @@
 				46825F03D8EAF3ADEAAA3CC9 /* Pods.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		90310CC51AFC05AA00C988B1 /* Objective-C Support */ = {
+			isa = PBXGroup;
+			children = (
+				90310CC61AFC05F200C988B1 /* QuestionApp-Bridging-Header.h */,
+			);
+			name = "Objective-C Support";
 			sourceTree = "<group>";
 		};
 		90336BF81AF3F67C009AC4BE /* Meteor Classes */ = {
@@ -149,12 +160,14 @@
 				90EDCA371AF0C42B005B3C76 /* AppDelegate.swift */,
 				90EDCA391AF0C42B005B3C76 /* AnswerViewController.swift */,
 				90EDCA3B1AF0C42B005B3C76 /* AskViewController.swift */,
+				90310CC91AFC103900C988B1 /* ChartViewController.swift */,
 				90EDCA3D1AF0C42B005B3C76 /* Main.storyboard */,
 				90EDCA401AF0C42B005B3C76 /* Images.xcassets */,
 				90EDCA421AF0C42B005B3C76 /* LaunchScreen.xib */,
 				90336BFC1AF40A2B009AC4BE /* Model */,
 				90336BF81AF3F67C009AC4BE /* Meteor Classes */,
 				90EDCA351AF0C42B005B3C76 /* Supporting Files */,
+				90310CC51AFC05AA00C988B1 /* Objective-C Support */,
 			);
 			path = QuestionApp;
 			sourceTree = "<group>";
@@ -353,6 +366,7 @@
 				90EDCA381AF0C42B005B3C76 /* AppDelegate.swift in Sources */,
 				90EDCA3A1AF0C42B005B3C76 /* AnswerViewController.swift in Sources */,
 				907880911AF65AFD00228C9C /* SubscriptionLoader.swift in Sources */,
+				90310CCA1AFC103900C988B1 /* ChartViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -483,6 +497,7 @@
 				INFOPLIST_FILE = QuestionApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "QuestionApp/QuestionApp-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -494,6 +509,7 @@
 				INFOPLIST_FILE = QuestionApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "QuestionApp/QuestionApp-Bridging-Header.h";
 			};
 			name = Release;
 		};
