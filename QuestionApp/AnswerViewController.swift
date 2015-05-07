@@ -15,6 +15,7 @@ class AnswerViewController: UIViewController {
     @IBOutlet weak var yesNoButton: UISegmentedControl!
     @IBOutlet weak var spinnerOnLoadQuestion: UIActivityIndicatorView!
     @IBOutlet weak var questionText: UILabel!
+    var chartViewController: ChartViewController?
     
     //Core Data vars
     let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
@@ -78,6 +79,7 @@ class AnswerViewController: UIViewController {
                             skipped++
                         }
                     }
+                
                 }
             }
         }
@@ -87,7 +89,7 @@ class AnswerViewController: UIViewController {
     //JawBone Charts
     func createChart(skipped: Int, no: Int, yes: Int)->JBBarChartView{
         var chart = JBBarChartView()
-        
+        //TODO
         
         
         return chart
@@ -112,6 +114,11 @@ class AnswerViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
+        super.prepareForSegue(segue, sender: sender)
+        self.chartViewController = segue.destinationViewController as? ChartViewController
     }
 }
 

@@ -19,6 +19,10 @@ class ChartViewController: UIViewController {
         self.helloWorldLabel.text = "hello world!"
         // Do any additional setup after loading the view.
     }
+    
+    func generateChart(yes: Int, no: Int, skipped: Int){
+        //TODO
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
