@@ -16,7 +16,8 @@ class FirstViewController: UIViewController {
     @IBOutlet weak var questionText: UILabel!
     let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     
-    var currentQuestionID = "123"
+    
+    var currentQuestionID: String = "-1"
     
     override func viewDidLoad() {
         super.viewDidLoad()

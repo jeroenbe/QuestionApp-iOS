@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5CE3ACC017090C10B3A55650"
-               BuildableName = "InflectorKit.framework"
-               BlueprintName = "Pods-InflectorKit"
+               BlueprintIdentifier = "1E90FF44A4E3005EBC1CA253"
+               BuildableName = "JBChartView.framework"
+               BlueprintName = "Pods-JBChartView"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

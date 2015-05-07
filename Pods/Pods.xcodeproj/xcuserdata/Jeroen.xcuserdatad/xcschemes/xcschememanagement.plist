@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-JBChartView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Meteor.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -32,27 +37,32 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0333EF94C741CD84379B169D</key>
+		<key>1E90FF44A4E3005EBC1CA253</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>072BAA8D3A71A536A807F496</key>
+		<key>5CE3ACC017090C10B3A55650</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5CCBD4701CB960924D8CDBA1</key>
+		<key>7F1A66079C8B44E60059948F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5DE5875F70E9A249F894337E</key>
+		<key>92186570C359DE6D4F470DC1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A4235AB0E9435323528851F1</key>
+		<key>A32BB90F69100DCAAD8C418D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A4B11AB97B95AEC73C832AF9</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7549" systemVersion="14D131" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="Answer" syncable="YES">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7549" systemVersion="14E11f" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Answer" representedClassName="PRODUCT_MODULE_NAME.Answer" syncable="YES">
         <attribute name="answer" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="qID" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="answerForQuestion" maxCount="1" deletionRule="Nullify" destinationEntity="Question" inverseName="answersForQuestion" inverseEntity="Question" syncable="YES"/>
@@ -11,14 +11,14 @@
         <relationship name="answersForQuestion" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Answer" inverseName="answerForQuestion" inverseEntity="Answer" syncable="YES"/>
         <relationship name="authorForQuestion" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="authoredQuestions" inverseEntity="User" syncable="YES"/>
     </entity>
-    <entity name="User" syncable="YES">
+    <entity name="User" representedClassName="PRODUCT_MODULE_NAME.User" syncable="YES">
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="authoredQuestions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Question" inverseName="authorForQuestion" inverseEntity="Question" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Answer" positionX="-288" positionY="45" width="128" height="30"/>
+        <element name="Answer" positionX="-288" positionY="45" width="128" height="90"/>
         <element name="Question" positionX="-90" positionY="9" width="128" height="105"/>
-        <element name="User" positionX="106" positionY="45" width="128" height="88"/>
+        <element name="User" positionX="106" positionY="45" width="128" height="90"/>
     </elements>
 </model>
