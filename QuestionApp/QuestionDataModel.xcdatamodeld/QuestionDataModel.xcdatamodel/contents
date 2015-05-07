@@ -19,6 +19,6 @@
     <elements>
         <element name="Answer" positionX="-288" positionY="45" width="128" height="30"/>
         <element name="Question" positionX="-90" positionY="9" width="128" height="105"/>
-        <element name="User" positionX="106" positionY="45" width="128" height="30"/>
+        <element name="User" positionX="106" positionY="45" width="128" height="88"/>
     </elements>
 </model>

@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 import Meteor
 
-let Meteor = METCoreDataDDPClient(serverURL: NSURL(string: "wss://questionapp.meteor.com/websocket"));
+let Meteor = METCoreDataDDPClient(serverURL: NSURL(string: "ws://localhost:3000/websocket"));
 
 
 @UIApplicationMain
