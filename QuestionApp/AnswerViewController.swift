@@ -27,6 +27,9 @@ class AnswerViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.setNextQuestion()
+        
+        self.chartViewController?.helloWorldLabel.text = "hallo wereld!"
+        
     }
     
     //IBActions -> action funcs
@@ -38,16 +41,17 @@ class AnswerViewController: UIViewController {
         Meteor.callMethodWithName("getUnreadQuestion", parameters: []){
             questionID, error in
             
+            var currentQuestionID = Meteor.objectIDForDocumentKey(METDocumentKey(collectionName: "questions", documentID: questionID))
             self.currentQuestionID = questionID as! String
+            
             
             subscriptionLoader.addSubscriptionWithName("questionById", parameters: questionID)
             
             subscriptionLoader.whenReady {
-                let fetchRequest = NSFetchRequest(entityName: "Question")
-                if let fetchResults = self.managedObjectContext!.executeFetchRequest(fetchRequest, error: nil) as? [Question] {
-                    self.stopSpinner()
-                    self.questionText.text = fetchResults[0].content + "?"
-                    println(fetchResults[0].content)
+                self.stopSpinner()
+                var question = (self.managedObjectContext?.existingObjectWithID(currentQuestionID, error: nil) as? Question)
+                if let question = question {
+                    self.questionText.text = question.content + "?"
                 }
             }
         }
@@ -79,7 +83,6 @@ class AnswerViewController: UIViewController {
                             skipped++
                         }
                     }
-                
                 }
             }
         }
@@ -107,6 +110,7 @@ class AnswerViewController: UIViewController {
     func enableYesNo(){
         self.yesNoButton.setEnabled(true, forSegmentAtIndex: 0)
         self.yesNoButton.setEnabled(true, forSegmentAtIndex: 1)
+        self.yesNoButton.selectedSegmentIndex = UISegmentedControlNoSegment
     }
     
     

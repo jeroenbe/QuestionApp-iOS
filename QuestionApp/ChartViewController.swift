@@ -16,7 +16,7 @@ class ChartViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.helloWorldLabel.text = "hello world!"
+        //self.helloWorldLabel.text = "hello world!"
         // Do any additional setup after loading the view.
     }
     
