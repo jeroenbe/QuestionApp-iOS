@@ -29,7 +29,6 @@ class AnswerViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.initializeView()
-        self.chartViewController?.helloWorldLabel.text = "hallo wereld!"
         
     }
     
@@ -82,9 +81,9 @@ class AnswerViewController: UIViewController {
         
         Meteor.callMethodWithName("answerQuestion", parameters: [self.currentQuestionID, answer]) {
             result in
-            var skipped: Int = 0
-            var yes: Int = 0
-            var no: Int = 0
+            var skipped: Double = 0
+            var yes: Double = 0
+            var no: Double = 0
             
             let subscriptionLoader = SubscriptionLoader()
             subscriptionLoader.addSubscriptionWithName("answersForQuestion", parameters: self.currentQuestionID as String)
@@ -102,18 +101,10 @@ class AnswerViewController: UIViewController {
                         }
                     }
                 }
+                self.chartViewController?.generateChart(yes, no: no, skipped: skipped)
             }
         }
         sender.setEnabled(false, forSegmentAtIndex: (sender.selectedSegmentIndex-1)*(-1))
-    }
-    
-    //JawBone Charts
-    func createChart(skipped: Int, no: Int, yes: Int)->JBBarChartView{
-        var chart = JBBarChartView()
-        //TODO
-        
-        
-        return chart
     }
     
     //UIKit detail funcs

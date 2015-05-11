@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "7F1A66079C8B44E60059948F"
+               BlueprintIdentifier = "8CACDC48A1E9C934E7B771D6"
                BuildableName = "PocketSocket.framework"
                BlueprintName = "Pods-PocketSocket"
                ReferencedContainer = "container:Pods.xcodeproj">

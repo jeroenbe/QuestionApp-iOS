@@ -10,9 +10,5 @@
 #define QuestionApp__Bridging_Header_h
 
 #import <UIKit/UIKit.h>
-#import "../Pods/JBChartView/Classes/JBChartView.h"
-#import "../Pods/JBChartView/Classes/JBBarChartView.h"
-#import "../Pods/JBChartView/Classes/JBLineChartView.h"
-
 
 #endif
