@@ -12,6 +12,7 @@ import Meteor
 class AnswerViewController: UIViewController {
     
     //UIKit vars
+    @IBOutlet weak var nextQuestionButton: UIButton!
     @IBOutlet weak var yesNoButton: UISegmentedControl!
     @IBOutlet weak var spinnerOnLoadQuestion: UIActivityIndicatorView!
     @IBOutlet weak var questionText: UILabel!
@@ -27,8 +28,7 @@ class AnswerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        self.setNextQuestion()
-        
+        self.initializeView()
         self.chartViewController?.helloWorldLabel.text = "hallo wereld!"
         
     }
@@ -49,6 +49,7 @@ class AnswerViewController: UIViewController {
     func getUnreadQuestion(){
         self.startSpinner()
         self.enableYesNo()
+        self.setButtonToSkipQuestion()
         
         let subscriptionLoader = SubscriptionLoader()
         Meteor.callMethodWithName("getUnreadQuestion", parameters: []){
@@ -73,6 +74,8 @@ class AnswerViewController: UIViewController {
     @IBAction func answerQuestion(sender: AnyObject) {
         var answer = false
         self.skip = false
+        self.setButtonToNextQuestion()
+        
         if(sender.selectedSegmentIndex == 0){
             answer = true
         }
@@ -127,7 +130,16 @@ class AnswerViewController: UIViewController {
         self.yesNoButton.setEnabled(true, forSegmentAtIndex: 1)
         self.yesNoButton.selectedSegmentIndex = UISegmentedControlNoSegment
     }
-    
+    func initializeView(){
+        self.setButtonToSkipQuestion()
+        self.setNextQuestion()
+    }
+    func setButtonToSkipQuestion(){
+        self.nextQuestionButton.setTitle("Skip Question", forState: nil)
+    }
+    func setButtonToNextQuestion(){
+        self.nextQuestionButton.setTitle("Next Question", forState: nil)
+    }
     
     //ViewController funcs
     override func didReceiveMemoryWarning() {

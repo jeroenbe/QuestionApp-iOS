@@ -73,6 +73,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Answer" image="first" id="acW-dT-cKf"/>
                     <connections>
+                        <outlet property="nextQuestionButton" destination="fFj-aC-5HL" id="HXU-wa-7G4"/>
                         <outlet property="questionText" destination="KQZ-1w-vlD" id="1n3-fb-7Za"/>
                         <outlet property="spinnerOnLoadQuestion" destination="IJC-ZP-aZR" id="WZl-c2-Bij"/>
                         <outlet property="yesNoButton" destination="1Ht-0W-Hua" id="7mP-Vn-FqF"/>
