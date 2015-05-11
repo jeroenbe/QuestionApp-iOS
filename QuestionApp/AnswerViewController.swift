@@ -22,6 +22,7 @@ class AnswerViewController: UIViewController {
     
     //Meteor vars
     var currentQuestionID: String = "-1"
+    var skip = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +35,18 @@ class AnswerViewController: UIViewController {
     
     //IBActions -> action funcs
     @IBAction func setNextQuestion(){
+        if(self.skip){
+            Meteor.callMethodWithName("skipQuestion", parameters: [self.currentQuestionID]){
+                void in
+                self.getUnreadQuestion()
+            }
+        }else{
+            self.getUnreadQuestion()
+            self.skip = true
+        }
+    }
+    
+    func getUnreadQuestion(){
         self.startSpinner()
         self.enableYesNo()
         
@@ -56,8 +69,10 @@ class AnswerViewController: UIViewController {
             }
         }
     }
+    
     @IBAction func answerQuestion(sender: AnyObject) {
         var answer = false
+        self.skip = false
         if(sender.selectedSegmentIndex == 0){
             answer = true
         }
