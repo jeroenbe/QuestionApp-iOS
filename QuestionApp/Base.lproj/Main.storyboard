@@ -293,7 +293,10 @@
                     </view>
                     <toolbarItems/>
                     <connections>
+                        <outlet property="noCountLabel" destination="Z0g-Wc-FV5" id="BMp-LU-UFF"/>
                         <outlet property="noWidth" destination="1c9-XI-6P1" id="pe2-er-8vp"/>
+                        <outlet property="skippedCountLabel" destination="Tar-Ku-a1l" id="yUI-fO-Z16"/>
+                        <outlet property="yesCountLabel" destination="86x-sd-xOx" id="oJI-zW-qg5"/>
                         <outlet property="yesWidth" destination="0rI-wA-OI8" id="h1e-dd-yRf"/>
                     </connections>
                 </viewController>

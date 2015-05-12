@@ -38,11 +38,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuestionApp/ChartViewController.swift"
-            timestampString = "453138285.061329"
+            timestampString = "453153679.24818"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
             landmarkName = "generateChart(_:no:skipped:)"
             landmarkType = "5">
          </BreakpointContent>
