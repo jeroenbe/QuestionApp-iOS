@@ -20,7 +20,7 @@ The [MiniMongoDB](https://www.meteor.com/mini-databases) is realised nativly via
 
 ###3. Libraries & Dependencies
 * [Meteor-iOS](https://github.com/martijnwalraven/meteor-ios)
-* [JawBone: ChartView](https://github.com/Jawbone/JBChartView)
+* ~~[JawBone: ChartView](https://github.com/Jawbone/JBChartView)~~ _(not used anymore, made my own charts)_
 
 
 
