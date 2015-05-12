@@ -9,39 +9,31 @@
 import UIKit
 
 class ChartViewController: UIViewController {
+    @IBOutlet weak var yesWidth: NSLayoutConstraint!
     
-    //IBOutlet For BarChart
-    @IBOutlet weak var yesHeight: NSLayoutConstraint!
-    @IBOutlet weak var noHeight: NSLayoutConstraint!
-    @IBOutlet weak var skippedHeight: NSLayoutConstraint!
-    
-    @IBOutlet weak var barViewHeight: NSLayoutConstraint!
-    
-    @IBOutlet weak var barView: UIView!
-    
+    @IBOutlet weak var noWidth: NSLayoutConstraint!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
     }
     
     func generateChart(yes: Double, no: Double, skipped: Double){
         var total = yes + no + skipped
-        
-        self.yesHeight.constant = CGFloat((yes/total)*Double(self.barViewHeight.constant))
-        self.noHeight.constant = CGFloat((no/total)*Double(self.barViewHeight.constant))
-        self.skippedHeight.constant = CGFloat((skipped/total)*Double(self.barViewHeight.constant))
-        
-        //self.noXAlign.constant = (self.yesWidth.constant < 276) ? self.yesXAlign.constant - self.yesWidth.constant : (self.yesWidth.constant - 276)*(-1)
-        
-        //var yesNoWidth = self.yesWidth.constant + self.noWidth.constant
-        //self.skippedXAlign.constant = (yesNoWidth < 276) ? yesNoWidth : (yesNoWidth - 276)*(-1)
+        var newYesWidth = self.yesWidth.withMultiplier(CGFloat(yes/total))
+        var newNoWidth = self.noWidth.withMultiplier(CGFloat(no/total))
         
         
+        self.view.layoutIfNeeded()
+        UIView.animateWithDuration(0.45){
+            println(self.yesWidth)
+            self.view.removeConstraints([self.yesWidth, self.noWidth])
+            println(self.yesWidth)
+            self.view.addConstraints([newYesWidth, newNoWidth])
+            (self.yesWidth, self.noWidth) = (newYesWidth, newNoWidth)
+            self.view.layoutIfNeeded()
+        }
         
-        self.barView.needsUpdateConstraints()
-
     }
 
     override func didReceiveMemoryWarning() {
@@ -49,5 +41,19 @@ class ChartViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func enableGraph(){
+        self.view.hidden = false
+         
+    }
+    
+    func disableGraph(){
+        self.view.hidden = true
+    }
+}
 
+
+extension NSLayoutConstraint{
+    func withMultiplier(newMultiplier: CGFloat) -> NSLayoutConstraint{
+        return NSLayoutConstraint(item: firstItem, attribute: firstAttribute, relatedBy: relation, toItem: secondItem, attribute: secondAttribute, multiplier: newMultiplier, constant: constant)
+    }
 }

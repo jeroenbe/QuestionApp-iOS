@@ -34,6 +34,7 @@ class AnswerViewController: UIViewController {
     
     //IBActions -> action funcs
     @IBAction func setNextQuestion(){
+        self.chartViewController?.disableGraph()
         if(self.skip){
             Meteor.callMethodWithName("skipQuestion", parameters: [self.currentQuestionID]){
                 void in
@@ -86,6 +87,7 @@ class AnswerViewController: UIViewController {
             var no: Double = 0
             
             let subscriptionLoader = SubscriptionLoader()
+            
             subscriptionLoader.addSubscriptionWithName("answersForQuestion", parameters: self.currentQuestionID as String)
             
             subscriptionLoader.whenReady {
@@ -102,6 +104,7 @@ class AnswerViewController: UIViewController {
                     }
                 }
                 self.chartViewController?.generateChart(yes, no: no, skipped: skipped)
+                self.chartViewController?.enableGraph()
             }
         }
         sender.setEnabled(false, forSegmentAtIndex: (sender.selectedSegmentIndex-1)*(-1))
