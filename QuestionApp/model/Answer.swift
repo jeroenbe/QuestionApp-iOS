@@ -12,7 +12,7 @@ import CoreData
 class Answer: NSManagedObject {
 
     @NSManaged var answer: NSNumber
-    @NSManaged var qID: String
+    @NSManaged var question: String
     @NSManaged var answerForQuestion: Question
 
 }

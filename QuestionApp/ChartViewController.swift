@@ -48,7 +48,6 @@ class ChartViewController: UIViewController {
     
     func updateAnswerCount(yes: Double, no: Double, skipped: Double){
         self.yesCountLabel.text = "\(Int(yes))"
-        println("\(Int(yes))")
         self.noCountLabel.text = "\(Int(no))"
         self.skippedCountLabel.text = "\(Int(skipped))"
     }

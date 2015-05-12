@@ -2,7 +2,7 @@
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7549" systemVersion="14E11f" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Answer" representedClassName="QuestionApp.Answer" syncable="YES">
         <attribute name="answer" optional="YES" attributeType="Boolean" syncable="YES"/>
-        <attribute name="qID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="question" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="answerForQuestion" maxCount="1" deletionRule="Nullify" destinationEntity="Question" inverseName="answersForQuestion" inverseEntity="Question" syncable="YES"/>
     </entity>
     <entity name="Question" representedClassName="QuestionApp.Question" syncable="YES">

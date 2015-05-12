@@ -92,6 +92,12 @@ class AnswerViewController: UIViewController {
             
             subscriptionLoader.whenReady {
                 let fetchRequest = NSFetchRequest(entityName: "Answer")
+                let predicate = NSPredicate(format: "question == %@", self.currentQuestionID)
+                
+                println(self.currentQuestionID)
+                
+                fetchRequest.predicate = predicate
+                
                 if let fetchResults = self.managedObjectContext!.executeFetchRequest(fetchRequest, error: nil) as? [Answer]{
                     for Answer in fetchResults{
                         if Answer.answer == true {
@@ -102,6 +108,8 @@ class AnswerViewController: UIViewController {
                             skipped++
                         }
                     }
+                    println(fetchResults.count)
+                    println(fetchResults[0].question)
                 }
                 self.chartViewController?.generateChart(yes, no: no, skipped: skipped)
                 self.chartViewController?.enableGraph()
