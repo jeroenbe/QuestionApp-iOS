@@ -14,6 +14,9 @@
 		90310CCA1AFC103900C988B1 /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90310CC91AFC103900C988B1 /* ChartViewController.swift */; };
 		90336C001AF40F1B009AC4BE /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90336BFF1AF40F1B009AC4BE /* CoreData.framework */; };
 		90336C331AF41241009AC4BE /* QuestionDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 90336C311AF41241009AC4BE /* QuestionDataModel.xcdatamodeld */; };
+		904222DB1B03477900128AC7 /* AnswerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 904222DA1B03477900128AC7 /* AnswerViewModel.swift */; };
+		904222DD1B0347B400128AC7 /* AskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 904222DC1B0347B400128AC7 /* AskViewModel.swift */; };
+		904222DF1B0347C100128AC7 /* ChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 904222DE1B0347C100128AC7 /* ChartViewModel.swift */; };
 		907880911AF65AFD00228C9C /* SubscriptionLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907880901AF65AFD00228C9C /* SubscriptionLoader.swift */; };
 		907880941AF65D9400228C9C /* FunctionalAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907880931AF65D9400228C9C /* FunctionalAdditions.swift */; };
 		90EDCA381AF0C42B005B3C76 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EDCA371AF0C42B005B3C76 /* AppDelegate.swift */; };
@@ -44,6 +47,9 @@
 		90310CC91AFC103900C988B1 /* ChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
 		90336BFF1AF40F1B009AC4BE /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		90336C321AF41241009AC4BE /* QuestionDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = QuestionDataModel.xcdatamodel; sourceTree = "<group>"; };
+		904222DA1B03477900128AC7 /* AnswerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerViewModel.swift; sourceTree = "<group>"; };
+		904222DC1B0347B400128AC7 /* AskViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AskViewModel.swift; sourceTree = "<group>"; };
+		904222DE1B0347C100128AC7 /* ChartViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartViewModel.swift; sourceTree = "<group>"; };
 		907880901AF65AFD00228C9C /* SubscriptionLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionLoader.swift; sourceTree = "<group>"; };
 		907880931AF65D9400228C9C /* FunctionalAdditions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FunctionalAdditions.swift; sourceTree = "<group>"; };
 		90EDCA321AF0C42B005B3C76 /* QuestionApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuestionApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -129,6 +135,9 @@
 		904222D61B0343FC00128AC7 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				904222DA1B03477900128AC7 /* AnswerViewModel.swift */,
+				904222DC1B0347B400128AC7 /* AskViewModel.swift */,
+				904222DE1B0347C100128AC7 /* ChartViewModel.swift */,
 			);
 			name = ViewModel;
 			sourceTree = "<group>";
@@ -389,9 +398,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				904222DB1B03477900128AC7 /* AnswerViewModel.swift in Sources */,
 				907880941AF65D9400228C9C /* FunctionalAdditions.swift in Sources */,
 				90336C331AF41241009AC4BE /* QuestionDataModel.xcdatamodeld in Sources */,
 				90310CC21AFB4DBA00C988B1 /* Answer.swift in Sources */,
+				904222DD1B0347B400128AC7 /* AskViewModel.swift in Sources */,
 				90310CC41AFB4DCF00C988B1 /* Question.swift in Sources */,
 				90EDCA3C1AF0C42B005B3C76 /* AskViewController.swift in Sources */,
 				90310CC01AFB4DB900C988B1 /* User.swift in Sources */,
@@ -399,6 +410,7 @@
 				90EDCA3A1AF0C42B005B3C76 /* AnswerViewController.swift in Sources */,
 				907880911AF65AFD00228C9C /* SubscriptionLoader.swift in Sources */,
 				90310CCA1AFC103900C988B1 /* ChartViewController.swift in Sources */,
+				904222DF1B0347C100128AC7 /* ChartViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
