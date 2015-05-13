@@ -4,7 +4,7 @@
 
 This app is a native variant of a webapplication, more info on this webapp. can be found here: [Question](https://github.com/JeroenBe/Question), please take into account that this is a private repo, if you want to take a look just send me a message!
 
-The purpose of this app is to gain a better understanding of Cocoa Touch, iOS, DDP & Meteor, MVVM & ReactiveCocoa.
+The purpose of this app is to gain a better understanding of Cocoa Touch, iOS, DDP & Meteor and MVVM.
 
 #####_1.1 Technical_
 
