@@ -80,42 +80,50 @@ class AnswerViewController: UIViewController {
             answer = true
         }
         
-        Meteor.callMethodWithName("answerQuestion", parameters: [self.currentQuestionID, answer]) {
+        self.sendAnswer(answer) {
             result in
-            var skipped: Double = 0
-            var yes: Double = 0
-            var no: Double = 0
-            
-            let subscriptionLoader = SubscriptionLoader()
-            
-            subscriptionLoader.addSubscriptionWithName("answersForQuestion", parameters: self.currentQuestionID as String)
-            
-            subscriptionLoader.whenReady {
-                let fetchRequest = NSFetchRequest(entityName: "Answer")
-                let predicate = NSPredicate(format: "question == %@", self.currentQuestionID)
+            self.fetchAnswersForQuestion(){
+                answers in
                 
-                println(self.currentQuestionID)
-                
-                fetchRequest.predicate = predicate
-                
-                if let fetchResults = self.managedObjectContext!.executeFetchRequest(fetchRequest, error: nil) as? [Answer]{
-                    for Answer in fetchResults{
-                        if Answer.answer == true {
-                            yes++
-                        }else if Answer.answer == false {
-                            no++
-                        }else{
-                            skipped++
-                        }
-                    }
-                    println(fetchResults.count)
-                    println(fetchResults[0].question)
-                }
-                self.chartViewController?.generateChart(yes, no: no, skipped: skipped)
+                self.chartViewController?.generateChart(answers[0], no: answers[1], skipped: answers[2])
                 self.chartViewController?.enableGraph()
             }
         }
         sender.setEnabled(false, forSegmentAtIndex: (sender.selectedSegmentIndex-1)*(-1))
+    }
+    
+    func sendAnswer(answer: Bool, callback: METMethodCompletionHandler){
+        Meteor.callMethodWithName("answerQuestion", parameters: [self.currentQuestionID, answer], completionHandler: callback)
+    }
+    
+    func fetchAnswersForQuestion(callback: ([Double])->()){
+        var skipped: Double = 0
+        var yes: Double = 0
+        var no: Double = 0
+        
+        let subscriptionLoader = SubscriptionLoader()
+        
+        subscriptionLoader.addSubscriptionWithName("answersForQuestion", parameters: self.currentQuestionID as String)
+        
+        subscriptionLoader.whenReady {
+            let fetchRequest = NSFetchRequest(entityName: "Answer")
+            let predicate = NSPredicate(format: "question == %@", self.currentQuestionID)
+            
+            fetchRequest.predicate = predicate
+            
+            if let fetchResults = self.managedObjectContext!.executeFetchRequest(fetchRequest, error: nil) as? [Answer]{
+                for Answer in fetchResults{
+                    if Answer.answer == true {
+                        yes++
+                    }else if Answer.answer == false {
+                        no++
+                    }else{
+                        skipped++
+                    }
+                }
+                callback([yes, no, skipped])
+            }
+        }
     }
     
     //UIKit detail funcs

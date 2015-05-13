@@ -126,6 +126,40 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		904222D61B0343FC00128AC7 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = ViewModel;
+			sourceTree = "<group>";
+		};
+		904222D71B03445500128AC7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				904222D91B03450F00128AC7 /* ViewControllers */,
+				904222D81B03450600128AC7 /* View */,
+				90EDCA3D1AF0C42B005B3C76 /* Main.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		904222D81B03450600128AC7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		904222D91B03450F00128AC7 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				90EDCA391AF0C42B005B3C76 /* AnswerViewController.swift */,
+				90EDCA3B1AF0C42B005B3C76 /* AskViewController.swift */,
+				90310CC91AFC103900C988B1 /* ChartViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
 		907880921AF65D7C00228C9C /* Extra Meteor Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -158,10 +192,8 @@
 			isa = PBXGroup;
 			children = (
 				90EDCA371AF0C42B005B3C76 /* AppDelegate.swift */,
-				90EDCA391AF0C42B005B3C76 /* AnswerViewController.swift */,
-				90EDCA3B1AF0C42B005B3C76 /* AskViewController.swift */,
-				90310CC91AFC103900C988B1 /* ChartViewController.swift */,
-				90EDCA3D1AF0C42B005B3C76 /* Main.storyboard */,
+				904222D71B03445500128AC7 /* View */,
+				904222D61B0343FC00128AC7 /* ViewModel */,
 				90EDCA401AF0C42B005B3C76 /* Images.xcassets */,
 				90EDCA421AF0C42B005B3C76 /* LaunchScreen.xib */,
 				90336BFC1AF40A2B009AC4BE /* Model */,
