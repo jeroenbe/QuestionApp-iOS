@@ -6,6 +6,12 @@
 // project.
 
 
+// Bond
+#define COCOAPODS_POD_AVAILABLE_Bond
+#define COCOAPODS_VERSION_MAJOR_Bond 3
+#define COCOAPODS_VERSION_MINOR_Bond 7
+#define COCOAPODS_VERSION_PATCH_Bond 1
+
 // InflectorKit
 #define COCOAPODS_POD_AVAILABLE_InflectorKit
 #define COCOAPODS_VERSION_MAJOR_InflectorKit 0
