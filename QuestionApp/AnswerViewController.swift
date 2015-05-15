@@ -46,7 +46,6 @@ class AnswerViewController: UIViewController {
             
             //Generate charts!
             self.chartViewController?.generateChart(answers[0], no: answers[1], skipped: answers[2])
-            println(answers)
             
             //Show charts!
             self.viewModel.chartViewModel.chartIsHidden.value = false

@@ -31,23 +31,16 @@ class ChartViewModel {
         self.resetAnswers()
         
         let subscriptionLoader = SubscriptionLoader()
-        
         subscriptionLoader.addSubscriptionWithName("answersForQuestion", parameters: currentQuestionID as String)
-        
-        println(currentQuestionID)
         
         subscriptionLoader.whenReady {
             let fetchRequest = NSFetchRequest(entityName: "Answer")
             let predicate = NSPredicate(format: "question == %@", currentQuestionID)
             
-            println(predicate.predicateFormat)
-            
             fetchRequest.predicate = predicate
             
             if let fetchResults = self.managedObjectContext!.executeFetchRequest(fetchRequest, error: nil) as? [Answer]{
                 for Answer in fetchResults{
-                    println(Answer.question)
-                    
                     if Answer.answer == true {
                         self.yes.value++
                     }else if Answer.answer == false {
