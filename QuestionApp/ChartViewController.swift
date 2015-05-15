@@ -53,6 +53,7 @@ class ChartViewController: UIViewController {
         self.noCountLabel.text = "\(Int(no))"
         self.skippedCountLabel.text = "\(Int(skipped))"
     }
+    
     func resetCounts(){
         self.yesCountLabel.text = "0"
         self.noCountLabel.text = "0"

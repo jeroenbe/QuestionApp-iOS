@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuestionApp/AnswerViewController.swift"
-            timestampString = "453213152.341795"
+            timestampString = "453405487.459636"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "216"
-            endingLineNumber = "216">
+            startingLineNumber = "230"
+            endingLineNumber = "230">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -24,11 +24,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuestionApp/AnswerViewController.swift"
-            timestampString = "453213152.341795"
+            timestampString = "453405487.459636"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "192"
-            endingLineNumber = "192">
+            startingLineNumber = "206"
+            endingLineNumber = "206">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -54,13 +54,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuestionApp/AnswerViewController.swift"
-            timestampString = "453213152.341795"
+            timestampString = "453405487.459636"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "174"
-            endingLineNumber = "174"
-            landmarkName = "initializeBindings()"
-            landmarkType = "5">
+            startingLineNumber = "188"
+            endingLineNumber = "188">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -8,53 +8,73 @@
 
 import Foundation
 import Bond
+import CoreData
 
 import UIKit
 
 class ChartViewModel {
     var chartIsHidden = Dynamic<Bool>(true)
     
-    @IBOutlet weak var yesWidth: NSLayoutConstraint!
-    @IBOutlet weak var noWidth: NSLayoutConstraint!
+    var yes = Dynamic<Double>(0)
+    var no = Dynamic<Double>(0)
+    var skipped = Dynamic<Double>(0)
     
-    @IBOutlet weak var yesCountLabel: UILabel!
-    @IBOutlet weak var noCountLabel: UILabel!
-    @IBOutlet weak var skippedCountLabel: UILabel!
+    var yesForLabel = Dynamic<String>("0")
+    var noForLabel = Dynamic<String>("0")
+    var skippedForLabel = Dynamic<String>("0")
+    
+    //Core Data vars
+    let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     
     
-    
-    func generateChart(yes: Double, no: Double, skipped: Double){
-        self.updateAnswerCount(yes, no: no, skipped: skipped)
+    func fetchAnswersForQuestion(currentQuestionID: String, callback: ([Double])->()){
+        self.resetAnswers()
         
-        var total = yes + no + skipped
-        var newYesWidth = self.yesWidth.withMultiplier(CGFloat(yes/total))
-        var newNoWidth = self.noWidth.withMultiplier(CGFloat(no/total))
+        let subscriptionLoader = SubscriptionLoader()
         
+        subscriptionLoader.addSubscriptionWithName("answersForQuestion", parameters: currentQuestionID as String)
         
-        self.view.layoutIfNeeded()
-        UIView.animateWithDuration(0.45){
-            self.view.removeConstraints([self.yesWidth, self.noWidth])
-            self.view.addConstraints([newYesWidth, newNoWidth])
-            (self.yesWidth, self.noWidth) = (newYesWidth, newNoWidth)
-            self.view.layoutIfNeeded()
+        println(currentQuestionID)
+        
+        subscriptionLoader.whenReady {
+            let fetchRequest = NSFetchRequest(entityName: "Answer")
+            let predicate = NSPredicate(format: "question == %@", currentQuestionID)
+            
+            println(predicate.predicateFormat)
+            
+            fetchRequest.predicate = predicate
+            
+            if let fetchResults = self.managedObjectContext!.executeFetchRequest(fetchRequest, error: nil) as? [Answer]{
+                for Answer in fetchResults{
+                    println(Answer.question)
+                    
+                    if Answer.answer == true {
+                        self.yes.value++
+                    }else if Answer.answer == false {
+                        self.no.value++
+                    }else{
+                        self.skipped.value++
+                    }
+                }
+                callback([self.yes.value, self.no.value, self.skipped.value])
+            }
         }
     }
     
     func updateAnswerCount(yes: Double, no: Double, skipped: Double){
-        self.yesCountLabel.text = "\(Int(yes))"
-        self.noCountLabel.text = "\(Int(no))"
-        self.skippedCountLabel.text = "\(Int(skipped))"
+        self.yesForLabel.value =  "\(Int(yes))"
+        self.noForLabel.value = "\(Int(no))"
+        self.skippedForLabel.value = "\(Int(skipped))"
     }
     func resetCounts(){
-        self.yesCountLabel.text = "0"
-        self.noCountLabel.text = "0"
-        self.skippedCountLabel.text = "0"
+        self.yesForLabel.value = "0"
+        self.noForLabel.value = "0"
+        self.skippedForLabel.value = "0"
     }
-}
-
-
-extension NSLayoutConstraint{
-    func withMultiplier(newMultiplier: CGFloat) -> NSLayoutConstraint{
-        return NSLayoutConstraint(item: firstItem, attribute: firstAttribute, relatedBy: relation, toItem: secondItem, attribute: secondAttribute, multiplier: newMultiplier, constant: constant)
+    
+    func resetAnswers(){
+        self.yes.value = 0
+        self.no.value = 0
+        self.skipped.value = 0
     }
 }

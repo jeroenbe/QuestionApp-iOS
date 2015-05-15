@@ -20,6 +20,7 @@ class AnswerViewModel{
     var chartIsDisabled = Dynamic<Bool>(true)
     var spinnerShouldSpin = Dynamic<Bool>(true)
     var yesNoButtonIsEnabled = Dynamic<Bool>(true)
+    var nextQuestionForButton = Dynamic<String>("Skip Question")
     
     //Meteor vars
     var currentQuestionID: String = "-1"
@@ -33,32 +34,9 @@ class AnswerViewModel{
     }
     
     func fetchAnswersForQuestion(callback: ([Double])->()){
-        var skipped: Double = 0
-        var yes: Double = 0
-        var no: Double = 0
-        
-        let subscriptionLoader = SubscriptionLoader()
-        
-        subscriptionLoader.addSubscriptionWithName("answersForQuestion", parameters: self.currentQuestionID as String)
-        
-        subscriptionLoader.whenReady {
-            let fetchRequest = NSFetchRequest(entityName: "Answer")
-            let predicate = NSPredicate(format: "question == %@", self.currentQuestionID)
-            
-            fetchRequest.predicate = predicate
-            
-            if let fetchResults = self.managedObjectContext!.executeFetchRequest(fetchRequest, error: nil) as? [Answer]{
-                for Answer in fetchResults{
-                    if Answer.answer == true {
-                        yes++
-                    }else if Answer.answer == false {
-                        no++
-                    }else{
-                        skipped++
-                    }
-                }
-                callback([yes, no, skipped])
-            }
+        self.chartViewModel.fetchAnswersForQuestion(self.currentQuestionID){
+            answers in
+                callback(answers)
         }
     }
     
@@ -78,7 +56,7 @@ class AnswerViewModel{
     func getUnreadQuestion(){
         self.spinnerShouldSpin.value = true
         //enableYesNo
-        //set button to 'Skip Question'
+        self.nextQuestionForButton.value = "Skip Question"
         
         let subscriptionLoader = SubscriptionLoader()
         Meteor.callMethodWithName("getUnreadQuestion", parameters: []){
@@ -100,28 +78,31 @@ class AnswerViewModel{
         }
     }
     
-    func answerQuestion(sender: AnyObject, callback: [Double] -> ()){
+    func answerQuestion(sender: AnyObject, callback: ([Double]) -> ()){
         var answer = false
-        self.skip = false
-        // set button to 'Next Question'
+        self.makeViewReadyForNewQuestion()
         
         if(sender.selectedSegmentIndex == 0){
             answer = true
         }
         
         self.sendAnswer(answer) {
-            result in
+            result in //result = Reply of Server - not needed here but needed for compiler
+            
             self.fetchAnswersForQuestion(){
                 answers in
-
+                
                 callback(answers)
             }
         }
+        //TODO for bindings
         sender.setEnabled(false, forSegmentAtIndex: (sender.selectedSegmentIndex-1)*(-1))
     }
     
-    func generateCharts(answers: [Double]){
-        self.chartViewModel.generateChart(answers[0], no: answers[1], skipped: answers[2])
+    func makeViewReadyForNewQuestion(){
+        self.skip = false
+        self.nextQuestionForButton.value = "Next Question"
+        self.chartViewModel.resetCounts()
     }
 }
 
