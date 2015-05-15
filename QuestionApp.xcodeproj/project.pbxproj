@@ -149,7 +149,6 @@
 			children = (
 				904222D91B03450F00128AC7 /* ViewControllers */,
 				904222D81B03450600128AC7 /* View */,
-				90EDCA3D1AF0C42B005B3C76 /* Main.storyboard */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -157,6 +156,7 @@
 		904222D81B03450600128AC7 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				90EDCA3D1AF0C42B005B3C76 /* Main.storyboard */,
 			);
 			name = View;
 			sourceTree = "<group>";

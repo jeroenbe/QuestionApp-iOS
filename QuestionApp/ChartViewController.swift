@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import Bond
 
 class ChartViewController: UIViewController {
+    
+    
     @IBOutlet weak var yesWidth: NSLayoutConstraint!
     @IBOutlet weak var noWidth: NSLayoutConstraint!
 
@@ -19,7 +22,6 @@ class ChartViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
     
     func generateChart(yes: Double, no: Double, skipped: Double){
@@ -55,14 +57,6 @@ class ChartViewController: UIViewController {
         self.yesCountLabel.text = "0"
         self.noCountLabel.text = "0"
         self.skippedCountLabel.text = "0"
-    }
-    func enableGraph(){
-        
-        self.view.hidden = false
-    }
-    func disableGraph(){
-        self.view.hidden = true
-        self.resetCounts()
     }
 }
 

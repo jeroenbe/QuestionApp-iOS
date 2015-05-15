@@ -13,6 +13,8 @@ import Bond
 
 class AnswerViewModel{
     
+    var chartViewModel = ChartViewModel()
+    
     //Bound vars
     var question = Dynamic<String>("")
     var chartIsDisabled = Dynamic<Bool>(true)
@@ -61,7 +63,7 @@ class AnswerViewModel{
     }
     
     func setNextQuestion(){
-        self.chartIsDisabled.value = true
+        self.chartViewModel.chartIsHidden.value = true
         if(self.skip){
             Meteor.callMethodWithName("skipQuestion", parameters: [self.currentQuestionID]){
                 void in
@@ -111,13 +113,15 @@ class AnswerViewModel{
             result in
             self.fetchAnswersForQuestion(){
                 answers in
-                
+
                 callback(answers)
-                
-                
             }
         }
         sender.setEnabled(false, forSegmentAtIndex: (sender.selectedSegmentIndex-1)*(-1))
+    }
+    
+    func generateCharts(answers: [Double]){
+        self.chartViewModel.generateChart(answers[0], no: answers[1], skipped: answers[2])
     }
 }
 
