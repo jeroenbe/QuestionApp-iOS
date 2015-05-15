@@ -19,6 +19,7 @@
 		904222DF1B0347C100128AC7 /* ChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 904222DE1B0347C100128AC7 /* ChartViewModel.swift */; };
 		907880911AF65AFD00228C9C /* SubscriptionLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907880901AF65AFD00228C9C /* SubscriptionLoader.swift */; };
 		907880941AF65D9400228C9C /* FunctionalAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907880931AF65D9400228C9C /* FunctionalAdditions.swift */; };
+		9092DC321B0372A400BD8EE5 /* Bond+UISegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9092DC311B0372A400BD8EE5 /* Bond+UISegmentedControl.swift */; };
 		90EDCA381AF0C42B005B3C76 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EDCA371AF0C42B005B3C76 /* AppDelegate.swift */; };
 		90EDCA3A1AF0C42B005B3C76 /* AnswerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EDCA391AF0C42B005B3C76 /* AnswerViewController.swift */; };
 		90EDCA3C1AF0C42B005B3C76 /* AskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EDCA3B1AF0C42B005B3C76 /* AskViewController.swift */; };
@@ -52,6 +53,7 @@
 		904222DE1B0347C100128AC7 /* ChartViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartViewModel.swift; sourceTree = "<group>"; };
 		907880901AF65AFD00228C9C /* SubscriptionLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionLoader.swift; sourceTree = "<group>"; };
 		907880931AF65D9400228C9C /* FunctionalAdditions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FunctionalAdditions.swift; sourceTree = "<group>"; };
+		9092DC311B0372A400BD8EE5 /* Bond+UISegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bond+UISegmentedControl.swift"; sourceTree = "<group>"; };
 		90EDCA321AF0C42B005B3C76 /* QuestionApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuestionApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		90EDCA361AF0C42B005B3C76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		90EDCA371AF0C42B005B3C76 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -177,6 +179,14 @@
 			name = "Extra Meteor Classes";
 			sourceTree = "<group>";
 		};
+		9092DC301B03726D00BD8EE5 /* BondExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				9092DC311B0372A400BD8EE5 /* Bond+UISegmentedControl.swift */,
+			);
+			name = BondExtensions;
+			sourceTree = "<group>";
+		};
 		90EDCA291AF0C42B005B3C76 = {
 			isa = PBXGroup;
 			children = (
@@ -200,13 +210,14 @@
 		90EDCA341AF0C42B005B3C76 /* QuestionApp */ = {
 			isa = PBXGroup;
 			children = (
+				90EDCA401AF0C42B005B3C76 /* Images.xcassets */,
+				90EDCA421AF0C42B005B3C76 /* LaunchScreen.xib */,
 				90EDCA371AF0C42B005B3C76 /* AppDelegate.swift */,
 				904222D71B03445500128AC7 /* View */,
 				904222D61B0343FC00128AC7 /* ViewModel */,
-				90EDCA401AF0C42B005B3C76 /* Images.xcassets */,
-				90EDCA421AF0C42B005B3C76 /* LaunchScreen.xib */,
 				90336BFC1AF40A2B009AC4BE /* Model */,
 				90336BF81AF3F67C009AC4BE /* Meteor Classes */,
+				9092DC301B03726D00BD8EE5 /* BondExtensions */,
 				90EDCA351AF0C42B005B3C76 /* Supporting Files */,
 				90310CC51AFC05AA00C988B1 /* Objective-C Support */,
 			);
@@ -407,6 +418,7 @@
 				90EDCA3C1AF0C42B005B3C76 /* AskViewController.swift in Sources */,
 				90310CC01AFB4DB900C988B1 /* User.swift in Sources */,
 				90EDCA381AF0C42B005B3C76 /* AppDelegate.swift in Sources */,
+				9092DC321B0372A400BD8EE5 /* Bond+UISegmentedControl.swift in Sources */,
 				90EDCA3A1AF0C42B005B3C76 /* AnswerViewController.swift in Sources */,
 				907880911AF65AFD00228C9C /* SubscriptionLoader.swift in Sources */,
 				90310CCA1AFC103900C988B1 /* ChartViewController.swift in Sources */,

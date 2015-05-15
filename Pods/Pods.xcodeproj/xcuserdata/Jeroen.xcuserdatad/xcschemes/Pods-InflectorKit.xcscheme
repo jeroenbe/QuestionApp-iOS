@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E9DCCCD6D3891DAA7413C7FB"
+               BlueprintIdentifier = "6F6BEF16008BEA658922B9C1"
                BuildableName = "InflectorKit.framework"
                BlueprintName = "Pods-InflectorKit"
                ReferencedContainer = "container:Pods.xcodeproj">
