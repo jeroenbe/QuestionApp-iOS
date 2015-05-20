@@ -19,6 +19,7 @@
 		904222DF1B0347C100128AC7 /* ChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 904222DE1B0347C100128AC7 /* ChartViewModel.swift */; };
 		907880911AF65AFD00228C9C /* SubscriptionLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907880901AF65AFD00228C9C /* SubscriptionLoader.swift */; };
 		907880941AF65D9400228C9C /* FunctionalAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907880931AF65D9400228C9C /* FunctionalAdditions.swift */; };
+		908FCC491B0C91BA00B2AF2B /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908FCC481B0C91BA00B2AF2B /* LoginViewModel.swift */; };
 		9092DC321B0372A400BD8EE5 /* Bond+UISegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9092DC311B0372A400BD8EE5 /* Bond+UISegmentedControl.swift */; };
 		90EDCA381AF0C42B005B3C76 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EDCA371AF0C42B005B3C76 /* AppDelegate.swift */; };
 		90EDCA3A1AF0C42B005B3C76 /* AnswerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EDCA391AF0C42B005B3C76 /* AnswerViewController.swift */; };
@@ -53,6 +54,7 @@
 		904222DE1B0347C100128AC7 /* ChartViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartViewModel.swift; sourceTree = "<group>"; };
 		907880901AF65AFD00228C9C /* SubscriptionLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionLoader.swift; sourceTree = "<group>"; };
 		907880931AF65D9400228C9C /* FunctionalAdditions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FunctionalAdditions.swift; sourceTree = "<group>"; };
+		908FCC481B0C91BA00B2AF2B /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		9092DC311B0372A400BD8EE5 /* Bond+UISegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bond+UISegmentedControl.swift"; sourceTree = "<group>"; };
 		90EDCA321AF0C42B005B3C76 /* QuestionApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuestionApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		90EDCA361AF0C42B005B3C76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 				904222DA1B03477900128AC7 /* AnswerViewModel.swift */,
 				904222DC1B0347B400128AC7 /* AskViewModel.swift */,
 				904222DE1B0347C100128AC7 /* ChartViewModel.swift */,
+				908FCC481B0C91BA00B2AF2B /* LoginViewModel.swift */,
 			);
 			name = ViewModel;
 			sourceTree = "<group>";
@@ -165,8 +168,8 @@
 			isa = PBXGroup;
 			children = (
 				90EDCA391AF0C42B005B3C76 /* AnswerViewController.swift */,
-				90EDCA3B1AF0C42B005B3C76 /* AskViewController.swift */,
 				90310CC91AFC103900C988B1 /* ChartViewController.swift */,
+				90EDCA3B1AF0C42B005B3C76 /* AskViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -412,6 +415,7 @@
 				904222DB1B03477900128AC7 /* AnswerViewModel.swift in Sources */,
 				907880941AF65D9400228C9C /* FunctionalAdditions.swift in Sources */,
 				90336C331AF41241009AC4BE /* QuestionDataModel.xcdatamodeld in Sources */,
+				908FCC491B0C91BA00B2AF2B /* LoginViewModel.swift in Sources */,
 				90310CC21AFB4DBA00C988B1 /* Answer.swift in Sources */,
 				904222DD1B0347B400128AC7 /* AskViewModel.swift in Sources */,
 				90310CC41AFB4DCF00C988B1 /* Question.swift in Sources */,

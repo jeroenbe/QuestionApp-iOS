@@ -31,7 +31,6 @@ class ChartViewController: UIViewController {
         var newYesWidth = self.yesWidth.withMultiplier(CGFloat(yes/total))
         var newNoWidth = self.noWidth.withMultiplier(CGFloat(no/total))
         
-        
         self.view.layoutIfNeeded()
         UIView.animateWithDuration(0.45){
             self.view.removeConstraints([self.yesWidth, self.noWidth])
